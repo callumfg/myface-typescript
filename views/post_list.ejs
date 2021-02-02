@@ -6,10 +6,32 @@
 <ol>
     <% results.forEach(function(post) {%>
         <li>
-            <%= post.message %>
+        
+            <p><%= post.message %></p>
+            <p><img src="<%=post.imageUrl%>" width="600"></p>
+            <p><%= post.createdAt %></p>
+            <p><%= post.postedBy.username %></p>
+            <p>Liked by <% if(post.likedBy.length > 2) {%> <%= post.likedBy[0].username %> and <%= post.likedBy.length - 1 %> others <%} else if (post.likedBy.length <= 2){%> <%= post.likedBy.length %> <% }; %><br>
+                Disliked by <% if(post.dislikedBy.length > 2) {%> <%= post.dislikedBy[0].username %> and <%= post.dislikedBy.length - 1 %> others <%} else if (post.dislikedBy.length <= 2){%> <%= post.dislikedBy.length %> <% }; %></p>
+            <form method="post" action="/posts/<%=post.id%>/like/">
+                <button type="submit">Like!</button>
+            </form>
+            <form method="post" action="/posts/<%=post.id%>/dislike/">
+                <button type="submit">Dislike!</button>
+            </form>
+            
+
         </li>
     <% }); %>
 </ol>
+<%if (next) { %>
+    <a href="<%= next %>">Next</a>
+<% } %>
+<%if (previous) { %>
+    <a href="<%= previous %>">Previous</a>
+<% } %>
 </body>
 <%- include('_footer') -%>
 </html>
+
+

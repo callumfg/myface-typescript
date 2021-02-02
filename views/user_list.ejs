@@ -6,7 +6,10 @@
 <ol>
     <% results.forEach(function(user) {%>
         <li>
-            <%= user.name %>
+            <p><img src="<%=user.coverImageUrl%>"></p>
+            <p><%= user.username %></p>
+            <p><%= user.id %></p>
+            <p></p><img src="<%=user.profileImageUrl%>"></p>
         </li>
     <% }); %>
 </ol>
