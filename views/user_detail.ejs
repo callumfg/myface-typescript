@@ -1,14 +1,26 @@
 <html lang="en-gb">
 <%- include('_head') -%>
 <%- include('_header') -%>
-<body>
+<body class="userDetail">
+
+    <div class="container">
+    <div class="cover"><img src="<%=coverImageUrl%>" class="userCover"></div>
     
-    <center><img src="<%=coverImageUrl%>" style="width:80%;">
+        <div class="profilepic">
+        <img src="<%=profileImageUrl%>" class="userProfile">
+        <div class="user">
+            <p class="udUser"><%= username %></p>
+            <p class="udEmail"> <%= email %></p>
+            </div>
+        </div>
     
-    
-    <img src="<%=profileImageUrl%>">
-    
-    <h1><%= name %></h1></center>
+        <div class="udN"><p class="udName"><%= name %></p></div>
+        
+       
+        
+    </div>
+
+  
 </body>
 <%- include('_footer') -%>
 </html>

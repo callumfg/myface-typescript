@@ -1,34 +1,60 @@
 <html lang="en-gb">
 <%- include('_head') -%>
 <%- include('_header') -%>
-<body>
-<h1>Posts</h1>
+
+<body class="post_list">
+    <!-- <button class="toggleMenu" onclick="toggleMenu()">&#9776</button> -->
+    <div class="open" onclick="toggleMenu()">
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+    </div>
+    <div class="menu" id="menu">
+        <div class ="menuTitle">
+            <p>MyFace</p>
+        </div>
+        <a href="#" onclick="toggleMenu()" class="close"></a>
+        <!-- <button class="close" onclick="toggleMenu()">X</button> -->
+        <div class="menuLinks">
+            
+            <p><a href="/posts">Posts</a></p>
+            <p><a href="/users">Users</a></p>
+            <p><a href="/posts/create">+ New Post</a></p>
+        </div>
+    </div>
+<h1 class="title">Posts</h1>
+
+<div>
 <ol>
     <% results.forEach(function(post) {%>
-        <li>
-        
-            <p><%= post.message %></p>
-            <p><img src="<%=post.imageUrl%>" width="600"></p>
-            <p><%= post.createdAt %></p>
-            <p><%= post.postedBy.username %></p>
-            <p>Liked by <% if(post.likedBy.length > 2) {%> <%= post.likedBy[0].username %> and <%= post.likedBy.length - 1 %> others <%} else if (post.likedBy.length <= 2){%> <%= post.likedBy.length %> <% }; %><br>
+        <li class="nostyle">
+            <div class="allPosts"> 
+            <p class="postUser"><a href=/users/<%= post.postedBy.id %>><%= post.postedBy.username %></a></p>
+            <img src="<%=post.imageUrl%>" class="postImg">
+            <p class="postLike">Liked by <% if(post.likedBy.length > 2) {%> <%= post.likedBy[0].username %> and <%= post.likedBy.length - 1 %> others <%} else if (post.likedBy.length <= 2){%> <%= post.likedBy.length %> <% }; %><br>
                 Disliked by <% if(post.dislikedBy.length > 2) {%> <%= post.dislikedBy[0].username %> and <%= post.dislikedBy.length - 1 %> others <%} else if (post.dislikedBy.length <= 2){%> <%= post.dislikedBy.length %> <% }; %></p>
-            <form method="post" action="/posts/<%=post.id%>/like/">
-                <button type="submit">Like!</button>
+            <p class="postMess"><%= post.message %></p>
+            <p class="postTime"><%= post.createdAt %></p>
+            
+            <form method="post" action="/posts/<%=post.id%>/like/" >
+                <button type="submit" class="likeButton">Like!</button>
             </form>
             <form method="post" action="/posts/<%=post.id%>/dislike/">
                 <button type="submit">Dislike!</button>
             </form>
-            
+            </div>
+       
 
         </li>
     <% }); %>
 </ol>
-<%if (next) { %>
-    <a href="<%= next %>">Next</a>
-<% } %>
+</div>
+
 <%if (previous) { %>
     <a href="<%= previous %>">Previous</a>
+<% } %>
+<%if (next) { %>
+    <a href="<%= next %>">Next</a>
 <% } %>
 </body>
 <%- include('_footer') -%>
