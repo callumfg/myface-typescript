@@ -2,126 +2,98 @@
     backGround: 👍;
     cursor:pointer;
 } */
-.close {
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    width: 32px;
-    height: 32px;
-    
-  }
-  .close:hover {
-    opacity: 1;
-  }
-  .close:before, .close:after {
-    position: absolute;
-    left: 15px;
-    content: ' ';
-    height: 24px;
-    width: 4px;
-    background-color: #DCDCDC;
-  }
-  .close:before {
-    transform: rotate(45deg);
-  }
-  .close:after {
-    transform: rotate(-45deg);
-  }
 
-  div.open{
-      position: absolute;
-      width: 32px;
-      height: 32px;
-      right: 15px;
-      top: 12px
-  }
-  div.bar{
-    width: 24px;
-    height: 3px;
-    border-radius: 2px;
-    background-color: #DCDCDC;
-    margin: 4px 0;
-    
-  }
-  
-  
-  
-  
-div.menu{
-    position: fixed;
-    z-index: 1001;
-    top: 0;
-    right: 0;
-    box-sizing: content-box;
-    font-family: "Segoe UI";
-    text-align: center;
-    height: 100%;
-    width: 75%;
-    background: #151820;
-}
-div.menuLinks{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-button.toggleMenu{
-    position: absolute;
-    top: 2%;
-    right: 5%;
-    
-}
-
-div.menuTitle{
-    font-size: 24px;
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 p.postUser{
     color: #DCDCDC;
     
 }
-div.allPosts{
-    background: #151820;
-}
+
 @media only screen and (max-width: 600px) {
+    h1.titlePosts{
+        margin-left: 5%;
+    }
+    
     header{
         visibility: hidden
     }
-    
+    div.singlePost{
+        position: relative;
+        width: 90%;
+        left: 5%;
+        background: #151820;
+        margin-bottom: 40px;
+    }
+}
     body.post_list{
         width: auto;
         margin-left: 0;
         margin-right: 0;
-        
-       
+           
     }
-    
-    img.postImg{
-        
+    div.postInfo{
+        position: relative;
+    }
+   
+    div.postUserInfo{
+        position: absolute;
+        left: 2.5%;
+        top: 2.5%;
+        display: flex;
+    }
+    div.message{
+        position:absolute;
+        bottom: 0;
         width: 100%;
-        height: auto;
-        margin-top: 0;
+        background-color: rgba(37, 42, 56, 0.589);
+    }
+
+    img.postProfileImg{
+        
+        width: 10%;
+        border-radius: 50%;
+        border: 1px solid #DCDCDC;
+        box-shadow: 2px 2px 2px #2e2b2ee7;
     }
     p.postUser{
+       
         padding-left: 2.5%;
         font-size: x-large;
         font-weight: 500;
         margin-bottom: 0;
+        margin-top:0;
+        text-shadow: 2px 2px 2px #2e2b2ee7;
     }
+
+    img.postImg{
+        position: relative;
+        width: 100%;
+        
+        
+        height: auto;
+        margin-top: 0;
+    }
+    
     p.postMess{
         padding-left: 2.5%;
+        margin-bottom: 0;
     }
     p.postTime{
         padding-left: 2.5%;
         font-size: x-small;
+        margin-top: 0;
     }
     p.postLike{
+        margin-top: 0;
         padding-left: 2.5%;
-        font-size: smaller;
+        font-size: x-small;
+    }
+    div.opinion{
+        position: relative;
+        padding-left: 2.5%;
+        display: flex;
+        
+        
     }
 }   
 

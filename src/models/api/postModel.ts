@@ -5,6 +5,7 @@ interface PostUserModel {
     name: string;
     username: string;
     email: string;
+    profileImageUrl: string;
 }
 
 export interface PostModel {

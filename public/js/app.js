@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 changeBackgroundColour = () => {
-    let items = document.getElementsByClassName('allPosts')
+    let items = document.getElementsByClassName('singlePost')
     let red = Math.random() * 255
     let green = Math.random() * 255
     let blue = Math.random() * 255
@@ -15,9 +15,11 @@ changeBackgroundColour = () => {
 
 toggleMenu = () =>{
     if (document.getElementById("menu").style.visibility == 'visible'){
-        document.getElementById("menu").style.visibility = 'hidden'
+        document.getElementById("menu").style.visibility = 'hidden';
+        // document.body.style.filter = 'blur(4px)'
     } else {
         document.getElementById("menu").style.visibility = 'visible'
     }
     console.log("button pressed")
 }
+
