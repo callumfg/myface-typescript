@@ -27,8 +27,11 @@
                     Disliked by <% if(post.dislikedBy.length > 2) {%> <%= post.dislikedBy[0].username %> and <%= post.dislikedBy.length - 1 %> others <%} else if (post.dislikedBy.length <= 2){%> <%= post.dislikedBy.length %> <% }; %></p>
                 
                 <div class= "opinion">
+                    
                 <form method="post" action="/posts/<%=post.id%>/like/" >
-                    <button type="submit" class="likeButton">Like!</button>
+                    <button type="submit" class="likeButton">
+                        Like!
+                    </button>
                 </form>
                 <form method="post" action="/posts/<%=post.id%>/dislike/">
                     <button type="submit">Dislike!</button>
